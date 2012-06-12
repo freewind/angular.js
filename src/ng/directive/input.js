@@ -371,6 +371,10 @@ function textInputType(scope, element, attr, ctrl, $sniffer, $browser) {
 
   var listener = function() {
     var value = trim(element.val());
+    
+    if(attr.trim===undefined || attr.trim==='true') {
+        value = trim(value);
+    }
 
     if (ctrl.$viewValue !== value) {
       scope.$apply(function() {
